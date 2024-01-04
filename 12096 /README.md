@@ -1,5 +1,5 @@
 # Key: BASE64 Encoding
-Run Dev.mode
+개발자모드를 켜고 HTML을 뜯어보자
 ### 문제
 * \<!-- 66y47KCc7J2YIOygleuLteydgA== -->  
 ```문제의 정답은```
