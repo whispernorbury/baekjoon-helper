@@ -7,5 +7,6 @@ pip install requests bs4
 ```
 python lotto.py
 ```
-## Note!
-python web crawling은 시간이 오래걸리기 때문에 출력은 직접 구현하셔야 합니다.
+## Note
+Form data를 담아 Post 요청을 보낸 후 WebCrawling을 반복하는 원리입니다
+python web crawling은 시간이 오래걸리기 때문에 출력은 직접 구현해야 합니다
