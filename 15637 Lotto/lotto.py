@@ -5,10 +5,7 @@ answer = {}
 url = "https://dhlottery.co.kr/gameResult.do?method=byWin"
 
 def crawl(idx):
-    payload = {
-        "drwNo": f"{idx}",
-        "drwNoList": f"{idx}"
-    }
+    payload = { "drwNo": f"{idx}", "drwNoList": f"{idx}" }
     response = requests.post(url, data=payload)
     soup = BeautifulSoup(response.text, "html.parser")
     numwin = soup.find("div", "win")
@@ -18,11 +15,14 @@ def crawl(idx):
             answer[i.text] += 1
         else:
             answer[i.text] = 1
+
+
 print("Crawling started from dhlotto...")
 for i in range(1, 701):
     crawl(i)
     if i % 35 == 0:
         print(f"{int(i / 7)}% completed.")
+
 
 print('all calculated clear!')
 print('#####################')
