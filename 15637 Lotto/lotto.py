@@ -18,7 +18,7 @@ def crawl(idx):
             answer[i.text] += 1
         else:
             answer[i.text] = 1
-print("Crawling started from hlotto...")
+print("Crawling started from dhlotto...")
 for i in range(1, 701):
     crawl(i)
     if i % 35 == 0:
