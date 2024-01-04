@@ -1,5 +1,5 @@
 # 나눔로또 Web Crawler
-## Install
+## Install Modules
 ```
 pip install requests bs4
 ```
