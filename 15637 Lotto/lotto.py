@@ -27,5 +27,5 @@ for i in range(1, 701):
 print('all calculated clear!')
 print('#####################')
 for i in range(1, 46):
-    print(f"{i}: {answer[i]}.")
+    print(f"{i:2}:  {answer[str(i)]}")
 print('#####################')
