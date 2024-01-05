@@ -7,7 +7,7 @@ url = "https://dhlottery.co.kr/gameResult.do?method=byWin"
 def crawl(idx):
     payload = { "drwNo": f"{idx}", "drwNoList": f"{idx}" }
     response = requests.post(url, data=payload)
-    if respnse.status_code == 200:
+    if response.status_code == 200:
         soup = BeautifulSoup(response.text, "html.parser")
         numwin = soup.find("div", "win")
         nums = numwin.findAll("span", "ball_645")
