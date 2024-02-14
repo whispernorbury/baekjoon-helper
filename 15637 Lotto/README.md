@@ -7,6 +7,9 @@ pip install requests bs4
 ```
 python lotto.py
 ```
+## TODO
+- asynchronizing
+- show progression status with async
 ## Note
 About **《15673: Lotto》** [(here)](https://www.acmicpc.net/problem/15637) 
 
