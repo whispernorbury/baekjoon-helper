@@ -10,7 +10,7 @@ pip install requests bs4 && python lotto.py
 ## Note
 About **《15673: Lotto》** [(here)](https://www.acmicpc.net/problem/15637) 
 
-나눔로또에 async로 대량의 Request를 한꺼번에 보내면 DDoS공격으로 식별되어 IP가 ban되는 것을 확인했습니다.  
+나눔로또에 async로 대량의 Request를 한꺼번에 보내면 몇 분동안 해당 IP로 접속이 되지 않는 듯한 현상이 확인되었습니다.  
 만약 시도해보고 싶다면 proxy설정을 하시거나 요청을 몇 개씩 묶어서 요청해보는 것을 시도하길 바랍니다.
 
 폼 데이터를 담아 post요청을 보낸 후 크롤링하는 것을 반복시행합니다.  
