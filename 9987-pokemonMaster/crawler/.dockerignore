@@ -1,0 +1,6 @@
+# md
+*.md
+
+# Docker
+Dockerfile
+.dockerignore
