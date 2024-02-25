@@ -1,13 +1,12 @@
 # DHLotto Web Crawler
-## Install Modules
+## For Docker user
 ```
-pip install requests bs4
+bash run.sh
 ```
-## Start
+## W/O Docker
 ```
-python lotto.py
+pip install requests bs4 && python lotto.py
 ```
-
 ## Note
 About **《15673: Lotto》** [(here)](https://www.acmicpc.net/problem/15637) 
 
