@@ -1,2 +1,14 @@
-# Baekjoon 난제 Helper
-소위 '난제'로 불리는 백준 문제들에 대한 Helper.
+# Baekjoon helper
+Hope this tool will help you during ps
+### 🫶SUPPORT TO :
+- C++ (NOT YET)
+- python
+- javascript
+### ⚡RUN :
+```
+bash a
+```
+### ⚠️NOTE :
+️You need to run __Docker__.
+## answer
+Answer for challenging(difficult) problems.🧐

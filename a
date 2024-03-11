@@ -1,0 +1,55 @@
+#!/bin/bash
+if ! docker info &>/dev/null; then
+  echo "!!! Please Run -Docker- first. !!!"
+  exit 0
+fi 
+echo "------------------------------------------------------"
+echo "Runtime List:"
+options=("C++" "Python" "JavaScript" "Quit")
+PS3="Choose runtime: "
+select opt in "${options[@]}"
+do
+  case $opt in
+    "C++")
+      echo "##################  Executing C++  ###################"
+      cat << EOF > Dockerfile
+FROM node:21-alpine
+WORKDIR /app
+COPY ./src/project.cpp /app
+RUN apt-get -qq update && apt-get -qq install -y g++ cmake wget unzip python3 && apt-get clinet
+CMD [ "g++", "index.js" ]
+EOF
+      break
+      ;;
+    "Python")
+      echo "################  Executing Python  ##################"
+      cat << EOF > Dockerfile
+FROM python:3.12.2-alpine3.18
+WORKDIR /app
+COPY src /app/
+CMD [ "python", "main.py" ] 
+EOF
+      break
+      ;;
+    "JavaScript")
+echo "###############  Executing JavaScript  ###############"
+cat << EOF > Dockerfile
+FROM node:21-alpine
+WORKDIR /app
+COPY src/index.js /app/
+CMD [ "node", "index.js" ]
+EOF
+      break
+      ;;
+    "Quit")
+      echo "Good bye..."
+      exit 0
+      ;;
+    *) 
+      echo "Invalid option. Please choose a number from 1 to 3."
+      ;;
+  esac
+done
+docker build -t dcimg -f Dockerfile .
+docker run --rm --name dc dcimg
+rm ./Dockerfile
