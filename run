@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y g++ && apt-get clean
 WORKDIR /app
 COPY . /app
 "
-        CMD="g++ cpp.cpp -o cpp.out && ./cpp.out < input.txt"
+        CMD="g++ cpp.cpp -o cpp.out && ./cpp.out"
         ;;
     py)
         IMAGE_NAME=myrunner-py
@@ -23,33 +23,29 @@ FROM python:3.12-alpine
 WORKDIR /app
 COPY . /app
 "
-        CMD="python3 py.py < input.txt"
+        CMD="python3 py.py"
         ;;
     js)
         IMAGE_NAME=myrunner-js
+        # Dockerfile content for Node.js
         DOCKER_CONTENT="
 FROM node:21-alpine
 WORKDIR /app
 COPY . /app
 "
-        node js.js < input.txt
+        CMD="node js.js"
         ;;
     *)
-        echo "Unknown language: $LANG_CHOICE"
+        echo "Unknown language: $LANG"
         exit 1
         ;;
 esac
 
-# 임시 Dockerfile 생성
 TMP_DOCKERFILE="/tmp/Dockerfile.$LANG"
 echo "$DOCKER_CONTENT" > "$TMP_DOCKERFILE"
 
-# Windows Git Bash / WSL 호환 절대 경로
 HOST_PWD=$(pwd -W 2>/dev/null || pwd)
 
-# Docker build + run
 docker build -t "$IMAGE_NAME" -f "$TMP_DOCKERFILE" . >/dev/null
-docker run --rm -v "$HOST_PWD/input.txt:/app/input.txt" "$IMAGE_NAME" sh -c "$CMD"
-
-# 임시 Dockerfile 삭제
+docker run -i --rm "$IMAGE_NAME" sh -c "$CMD"
 rm "$TMP_DOCKERFILE"
